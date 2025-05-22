@@ -45,7 +45,7 @@ class Menu {
     }
     start() {                           //Entry point to Menu app
         let selection = this.showMainMenuOptions();
-        while (selection !== 0) {
+        while (selection != 0) {                //Should this be !==?
             switch (selection) {
                 case '1':
                     this.createClass();
@@ -73,7 +73,7 @@ class Menu {
             2) View A Class
             3) Delete A Class
             4) Display All Classes
-            `);
+        `);
     }
     showClassMenuOptions(classInfo) {       //Where does classInfo come from?
         return prompt(`
@@ -86,16 +86,15 @@ class Menu {
     }
     displayClasses() {
         let classString = "";
-            for(let i = 0; i < this.classes.length; i++) {
-                classString += i`) ${this.classes[i].title} - ${this.classes[i].instructor}\n`;
-            }
+        for(let i = 0; i < this.classes.length; i++) {
+            classString += `${i}) ${this.classes[i].title} - ${this.classes[i].instructor}\n`;
+        }
         alert(classString);
     }
     createClass() {
         let title = prompt('Enter the title of the class');
-        this.classes.push(new Class(title));
         let instructor = prompt('Enter the instructor for the new class');
-        this.classes.push(new Class(instructor));
+        this.classes.push(new Class(title, instructor));
     }
     viewClass() {
         let index = prompt('Enter the index of the class you wish to view');
