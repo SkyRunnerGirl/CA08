@@ -45,7 +45,7 @@ class Menu {
     }
     start() {                           //Entry point to Menu app
         let selection = this.showMainMenuOptions();
-        while (selection != 0) {                //Should this be !==?
+        while (selection !== 0) {
             switch (selection) {
                 case '1':
                     this.createClass();
@@ -75,13 +75,13 @@ class Menu {
             4) Display All Classes
         `);
     }
-    showClassMenuOptions(classInfo) {       //Where does classInfo come from?
+    showClassMenuOptions(description) {
         return prompt(`
             0) Go Back
             1) Add a Student
             2) Delete a Student
             -------------------
-            ${classInfo}
+            ${description}
             `);
     }
     displayClasses() {
